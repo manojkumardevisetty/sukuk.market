@@ -1,6 +1,6 @@
 # Sukuk Market — global sukuk screener
 # Open data: /llms.txt, /llms-full.txt, /api/public/instruments.json, /api/public/instruments.csv
-# Content may be cited with attribution to Sukuk Market (https://sukuk-haven-global.lovable.app).
+# Content may be cited with attribution to Sukuk Market (https://sukuk.market).
 
 User-agent: *
 Allow: /
@@ -82,4 +82,4 @@ Allow: /
 User-agent: MistralAI-User
 Allow: /
 
-Sitemap: https://sukuk-haven-global.lovable.app/sitemap.xml
+Sitemap: https://sukuk.market/sitemap.xml

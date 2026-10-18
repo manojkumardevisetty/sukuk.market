@@ -88,12 +88,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Sukuk Market is a free screener for Shariah-compliant fixed income, covering sovereign, corporate and green sukuk worldwide.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Sukuk Market" },
+      { property: "og:image", content: "https://sukuk.market/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Sukuk Market — the global sukuk screener" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://sukuk.market/og-image.png" },
+      { name: "theme-color", content: "#16523e" },
       { name: "google-site-verification", content: "9wJhK4g9o4nFX2GOqzjje5NE6UqxkIIBdJ9hHzcXsyQ" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", href: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -109,9 +118,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://sukuk-haven-global.lovable.app/#organization",
+              "@id": "https://sukuk.market/#organization",
               name: "Sukuk Market",
-              url: "https://sukuk-haven-global.lovable.app",
+              url: "https://sukuk.market",
               description:
                 "Global sukuk screener publishing open reference data on Shariah-compliant investment certificates.",
               knowsAbout: [
@@ -126,16 +135,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             },
             {
               "@type": "WebSite",
-              "@id": "https://sukuk-haven-global.lovable.app/#website",
+              "@id": "https://sukuk.market/#website",
               name: "Sukuk Market",
-              url: "https://sukuk-haven-global.lovable.app",
-              publisher: { "@id": "https://sukuk-haven-global.lovable.app/#organization" },
+              url: "https://sukuk.market",
+              publisher: { "@id": "https://sukuk.market/#organization" },
               inLanguage: ["en", "ar", "ms"],
               potentialAction: {
                 "@type": "SearchAction",
                 target: {
                   "@type": "EntryPoint",
-                  urlTemplate: "https://sukuk-haven-global.lovable.app/market?q={search_term_string}",
+                  urlTemplate: "https://sukuk.market/market?q={search_term_string}",
                 },
                 "query-input": "required name=search_term_string",
               },

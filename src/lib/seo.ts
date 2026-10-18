@@ -1,6 +1,6 @@
 import type { InstrumentRow } from "./catalogue.server";
 
-export const SITE_URL = "https://sukuk-haven-global.lovable.app";
+export const SITE_URL = "https://sukuk.market";
 export const SITE_NAME = "Sukuk Market";
 
 export function abs(path: string) {

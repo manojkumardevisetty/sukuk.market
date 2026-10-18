@@ -23,9 +23,9 @@ export const Route = createFileRoute("/compare")({
       { name: "description", content: "Compare yields, tenors, structures and ratings across sukuk side by side." },
       { property: "og:title", content: "Compare Sukuk — Sukuk Market" },
       { property: "og:description", content: "Side-by-side comparison of sukuk terms." },
-      { property: "og:url", content: "https://sukuk-haven-global.lovable.app/compare" },
+      { property: "og:url", content: "https://sukuk.market/compare" },
     ],
-    links: [{ rel: "canonical", href: "https://sukuk-haven-global.lovable.app/compare" }],
+    links: [{ rel: "canonical", href: "https://sukuk.market/compare" }],
   }),
   loader: ({ context }) => {
     context.queryClient.ensureQueryData(allInstrumentsQuery());

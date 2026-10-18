@@ -72,7 +72,7 @@ export const Route = createFileRoute("/api/public/instruments.csv")({
               row.is_tokenized,
               row.status,
               row.price_as_of,
-              `https://sukuk-haven-global.lovable.app/instrument/${row.slug}`,
+              `https://sukuk.market/instrument/${row.slug}`,
             ]
               .map(cell)
               .join(","),

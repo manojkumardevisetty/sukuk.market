@@ -33,9 +33,9 @@ export const Route = createFileRoute("/about")({
       },
       { property: "og:title", content: "About Sukuk Market" },
       { property: "og:description", content: "A UAE-first, globally ready screener for the global sukuk market." },
-      { property: "og:url", content: "https://sukuk-haven-global.lovable.app/about" },
+      { property: "og:url", content: "https://sukuk.market/about" },
     ],
-    links: [{ rel: "canonical", href: "https://sukuk-haven-global.lovable.app/about" }],
+    links: [{ rel: "canonical", href: "https://sukuk.market/about" }],
   }),
   component: AboutPage,
 });

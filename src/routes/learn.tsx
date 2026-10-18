@@ -62,9 +62,9 @@ export const Route = createFileRoute("/learn")({
       },
       { property: "og:title", content: "Learn Sukuk — Structures & Workflow" },
       { property: "og:description", content: "How Ijarah, Wakalah, Murabahah, Mudarabah and Musharakah sukuk work, and how to use the screener." },
-      { property: "og:url", content: "https://sukuk-haven-global.lovable.app/learn" },
+      { property: "og:url", content: "https://sukuk.market/learn" },
     ],
-    links: [{ rel: "canonical", href: "https://sukuk-haven-global.lovable.app/learn" }],
+    links: [{ rel: "canonical", href: "https://sukuk.market/learn" }],
     scripts: [
       ldScript({
         "@context": "https://schema.org",
