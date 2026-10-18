@@ -14,7 +14,7 @@ export const getWatchlist = createServerFn({ method: "GET" })
 
 export const toggleWatch = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { instrumentId: string; watched: boolean }) => data)
+  .validator((data: { instrumentId: string; watched: boolean }) => data)
   .handler(async ({ context, data }) => {
     if (data.watched) {
       const { error } = await context.supabase
@@ -34,7 +34,7 @@ export const toggleWatch = createServerFn({ method: "POST" })
 
 export const submitEnquiry = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { instrumentId: string; subject: string; message: string }) => data)
+  .validator((data: { instrumentId: string; subject: string; message: string }) => data)
   .handler(async ({ context, data }) => {
     const { error } = await context.supabase.from("enquiries").insert({
       user_id: context.userId,
@@ -48,7 +48,7 @@ export const submitEnquiry = createServerFn({ method: "POST" })
 
 export const submitSubscription = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { instrumentId: string; amount: number; currency: string; notes: string }) => data)
+  .validator((data: { instrumentId: string; amount: number; currency: string; notes: string }) => data)
   .handler(async ({ context, data }) => {
     const { error } = await context.supabase.from("subscription_requests").insert({
       user_id: context.userId,
@@ -74,7 +74,7 @@ export const getHoldings = createServerFn({ method: "GET" })
 
 export const addHolding = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { instrumentId: string; nominal: number; price: number }) => data)
+  .validator((data: { instrumentId: string; nominal: number; price: number }) => data)
   .handler(async ({ context, data }) => {
     const { error } = await context.supabase.from("holdings").insert({
       user_id: context.userId,
@@ -88,7 +88,7 @@ export const addHolding = createServerFn({ method: "POST" })
 
 export const removeHolding = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { id: string }) => data)
+  .validator((data: { id: string }) => data)
   .handler(async ({ context, data }) => {
     const { error } = await context.supabase
       .from("holdings")
@@ -119,7 +119,7 @@ export const getMyActivity = createServerFn({ method: "GET" })
 
 export const updateProfile = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { fullName: string; country: string; preferredLanguage: string }) => data)
+  .validator((data: { fullName: string; country: string; preferredLanguage: string }) => data)
   .handler(async ({ context, data }) => {
     const { error } = await context.supabase
       .from("profiles")
@@ -147,7 +147,7 @@ export const getSavedScreens = createServerFn({ method: "GET" })
 
 export const saveScreen = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { name: string; search: string }) => data)
+  .validator((data: { name: string; search: string }) => data)
   .handler(async ({ context, data }) => {
     const { error } = await context.supabase.from("saved_screens").insert({
       user_id: context.userId,
@@ -160,7 +160,7 @@ export const saveScreen = createServerFn({ method: "POST" })
 
 export const deleteSavedScreen = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { id: string }) => data)
+  .validator((data: { id: string }) => data)
   .handler(async ({ context, data }) => {
     const { error } = await context.supabase
       .from("saved_screens")
@@ -185,7 +185,7 @@ export const getAlerts = createServerFn({ method: "GET" })
 
 export const createAlert = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { instrumentId: string; metric: string; direction: string; threshold: number }) => data)
+  .validator((data: { instrumentId: string; metric: string; direction: string; threshold: number }) => data)
   .handler(async ({ context, data }) => {
     const { error } = await context.supabase.from("alerts").insert({
       user_id: context.userId,
@@ -200,7 +200,7 @@ export const createAlert = createServerFn({ method: "POST" })
 
 export const deleteAlert = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { id: string }) => data)
+  .validator((data: { id: string }) => data)
   .handler(async ({ context, data }) => {
     const { error } = await context.supabase.from("alerts").delete().eq("id", data.id).eq("user_id", context.userId);
     if (error) throw new Error(error.message);
@@ -209,7 +209,7 @@ export const deleteAlert = createServerFn({ method: "POST" })
 
 export const registerInterest = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { instrumentId: string; partnerId: string | null; message: string }) => data)
+  .validator((data: { instrumentId: string; partnerId: string | null; message: string }) => data)
   .handler(async ({ context, data }) => {
     const { error } = await context.supabase.from("enquiries").insert({
       user_id: context.userId,

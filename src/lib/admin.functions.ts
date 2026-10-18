@@ -31,7 +31,7 @@ export const getAdminOverview = createServerFn({ method: "GET" })
 
 export const setRequestStatus = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { id: string; status: "submitted" | "under_review" | "allocated" | "rejected" | "withdrawn" }) => data)
+  .validator((data: { id: string; status: "submitted" | "under_review" | "allocated" | "rejected" | "withdrawn" }) => data)
   .handler(async ({ context, data }) => {
     const { data: roles } = await context.supabase
       .from("user_roles")
@@ -63,7 +63,7 @@ export const getPricingBoard = createServerFn({ method: "GET" })
 /** Manual price override — used until a market-data vendor feed is wired to the ingest endpoint. */
 export const recordPrice = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { instrumentId: string; price?: number | null; yieldToMaturity?: number | null; source?: string }) => data)
+  .validator((data: { instrumentId: string; price?: number | null; yieldToMaturity?: number | null; source?: string }) => data)
   .handler(async ({ context, data }) => {
     await assertAdmin(context);
     const asOf = new Date().toISOString();
@@ -137,7 +137,7 @@ export const getDataFeeds = createServerFn({ method: "GET" })
 
 export const setDealStatus = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { id: string; status: "new" | "tracked" | "dismissed" }) => data)
+  .validator((data: { id: string; status: "new" | "tracked" | "dismissed" }) => data)
   .handler(async ({ context, data }) => {
     await assertAdmin(context);
     const { error } = await context.supabase
